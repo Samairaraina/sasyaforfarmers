@@ -1,0 +1,562 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "solutions": "Solutions",
+    "analytics": "Analytics",
+    "about": "About",
+    "getStarted": "Get Started",
+    "language": "Language",
+    "dashboard": "Dashboard",
+    "cropLoss": "Crop Loss Prediction",
+    "diseaseDetection": "Disease Detection",
+    "irrigation": "Irrigation Advisor",
+    "cropRecommendation": "Crop Recommendation",
+    "market": "Market Intelligence",
+    "assistant": "AI Assistant",
+    "schemes": "Government Schemes",
+    "forFarmers": "For Farmers",
+    "forAgribusiness": "For Agribusiness",
+    "forResearchers": "For Researchers"
+  },
+  "landing": {
+    "badge": "AI-Powered Farming Platform",
+    "how": {
+      "title": "How It Works",
+      "subtitle": "Get started with Sasya in three simple steps"
+    },
+    "steps": {
+      "1": {
+        "title": "Create Your Farm Profile",
+        "desc": "Set up your farm profile with soil type, location, and crop preferences in minutes."
+      },
+      "2": {
+        "title": "Get AI-Powered Insights",
+        "desc": "Receive personalized recommendations on crops, irrigation, disease detection, and more."
+      },
+      "3": {
+        "title": "Take Action & Grow",
+        "desc": "Apply insights to maximize yield, reduce losses, and make informed decisions."
+      }
+    },
+    "stats": {
+      "farmers": "Farmers Trusting Us",
+      "crops": "Crops Supported",
+      "accuracy": "Prediction Accuracy",
+      "support": "Support Available"
+    },
+    "testimonials": {
+      "title": "Trusted by Farmers Across India",
+      "subtitle": "Hear from farmers who have transformed their farming with Sasya",
+      "1": {
+        "quote": "Sasya's disease detection saved my wheat crop. I identified rust infection early and saved 40% of my yield."
+      },
+      "2": {
+        "quote": "The irrigation advisor helped me save water and improve my vegetable yield by 30%. Highly recommended!"
+      },
+      "3": {
+        "quote": "Market intelligence features helped me get the best price for my sugarcane. The price predictions are very accurate."
+      }
+    },
+    "cta": {
+      "title": "Ready to Transform Your Farming?",
+      "subtitle": "Join thousands of Indian farmers using AI to make smarter agricultural decisions.",
+      "button1": "Get Started Free",
+      "button2": "Talk to AI Assistant"
+    }
+  },
+  "hero": {
+    "badge": "AI-Powered Agricultural Intelligence",
+    "title": "Cultivating Better Harvests with AI",
+    "subtitle": "Predict crop risks, detect diseases, monitor weather patterns, and maximize farm productivity through intelligent agricultural insights.",
+    "cta1": "Start Analysis",
+    "cta2": "View Dashboard"
+  },
+  "features": {
+    "title": "Everything Farmers Need in One Intelligent Platform",
+    "subtitle": "From crop protection to market insights, Sasya helps farmers make smarter decisions every day.",
+    "cropLoss": "Crop Loss Prediction",
+    "cropLossDesc": "Predict potential crop losses using historical data and AI models to take preventive action.",
+    "cropHealth": "Crop Health Monitoring",
+    "cropHealthDesc": "Real-time crop health scores and vegetation analysis using advanced AI algorithms.",
+    "weather": "Weather Intelligence",
+    "weatherDesc": "Accurate weather forecasts and climate insights tailored to your farm location.",
+    "disease": "Disease Detection",
+    "diseaseDesc": "Identify plant diseases instantly by uploading crop images with AI-powered analysis.",
+    "cropRecommendation": "Crop Recommendation",
+    "cropRecommendationDesc": "Find the best crops for your farm based on soil type, climate, and market demand.",
+    "market": "Market Intelligence",
+    "marketDesc": "Real-time market prices, trends, and smart selling recommendations.",
+    "irrigation": "Smart Irrigation",
+    "irrigationDesc": "AI-driven irrigation schedules optimizing water usage based on soil and weather data.",
+    "assistant": "AI Farming Assistant",
+    "assistantDesc": "Get instant farming advice in Hindi and English through our intelligent assistant."
+  },
+  "dashboard": {
+    "title": "Farmer Dashboard",
+    "cropHealth": "Crop Health Score",
+    "weather": "Weather Intelligence",
+    "temperature": "Temperature",
+    "humidity": "Humidity",
+    "rainfall": "Rainfall",
+    "windSpeed": "Wind Speed",
+    "risk": "Risk Assessment",
+    "drought": "Drought Risk",
+    "flood": "Flood Risk",
+    "pest": "Pest Risk",
+    "diseaseRisk": "Disease Risk",
+    "yieldForecast": "Yield Forecast",
+    "expectedYield": "Expected Yield",
+    "perHectare": "per hectare",
+    "viewDetails": "View Details",
+    "addFarm": "Add Your Farm",
+    "farmProfile": "Farm Profile",
+    "name": "Name",
+    "state": "State",
+    "district": "District",
+    "farmSize": "Farm Size (hectares)",
+    "soilType": "Soil Type",
+    "cropType": "Crop Type",
+    "save": "Save Profile",
+    "low": "Low",
+    "moderate": "Moderate",
+    "high": "High",
+    "critical": "Critical"
+  },
+  "prediction": {
+    "title": "AI Crop Loss Prediction",
+    "subtitle": "Predict potential crop losses and get actionable recommendations",
+    "input_heading": "Input Parameters",
+    "crop_type": "Crop Type",
+    "cropType": "Crop Type",
+    "location": "Location",
+    "location_placeholder": "e.g., Punjab, India",
+    "soil_data": "Soil Data",
+    "soilData": "Soil Data",
+    "temperature": "Temperature (°C)",
+    "rainfall": "Rainfall (mm)",
+    "humidity": "Humidity (%)",
+    "predict": "Predict Loss",
+    "analyzing": "Analyzing...",
+    "analyzing_data": "Analyzing your farm data",
+    "please_wait": "Please wait while AI processes the information",
+    "results": "Prediction Results",
+    "predicted_yield": "Predicted Yield",
+    "predictedYield": "Predicted Yield",
+    "estimated_loss": "Estimated Loss",
+    "lossPercentage": "Estimated Loss",
+    "risk_level": "Risk Level",
+    "riskLevel": "Risk Level",
+    "quintals_per_hectare": "quintals per hectare",
+    "of_potential": "of potential yield",
+    "risk_meter": "Loss Risk Meter",
+    "seasonal_comparison": "Seasonal Yield Comparison",
+    "no_data_title": "Ready to Predict",
+    "no_data_desc": "Fill in the parameters and click Predict Loss to see results",
+    "low": "Low",
+    "moderate": "Moderate",
+    "high": "High",
+    "critical": "Critical",
+    "recommendations": "Action Recommendations",
+    "kharif": "Kharif",
+    "rabi": "Rabi",
+    "zaid": "Zaid",
+    "current": "Current",
+    "wheat": "Wheat",
+    "rice": "Rice",
+    "maize": "Maize",
+    "mustard": "Mustard",
+    "sugarcane": "Sugarcane",
+    "cotton": "Cotton",
+    "loamy": "Loamy",
+    "clay": "Clay",
+    "sandy": "Sandy",
+    "silty": "Silty",
+    "peaty": "Peaty",
+    "rec_wheat_1": "Apply nitrogen-rich fertilizer at early growth stages",
+    "rec_wheat_2": "Ensure proper irrigation during grain filling period",
+    "rec_wheat_3": "Monitor for rust and aphid infestation weekly",
+    "rec_wheat_4": "Use certified seeds for better germination",
+    "rec_rice_1": "Maintain 5cm water level during vegetative stage",
+    "rec_rice_2": "Apply potassium fertilizer for disease resistance",
+    "rec_rice_3": "Transplant seedlings at correct spacing",
+    "rec_rice_4": "Harvest at 25% moisture content for best quality",
+    "rec_maize_1": "Ensure adequate nitrogen at knee-height stage",
+    "rec_maize_2": "Control weeds within first 6 weeks",
+    "rec_maize_3": "Monitor for fall armyworm regularly",
+    "rec_maize_4": "Apply zinc sulfate for better cob development",
+    "rec_mustard_1": "Provide adequate irrigation at flowering stage",
+    "rec_mustard_2": "Apply sulfur fertilizer for oil content",
+    "rec_mustard_3": "Control aphids with neem-based pesticides",
+    "rec_mustard_4": "Harvest when pods turn yellow-brown",
+    "rec_sugarcane_1": "Ensure 8-10 irrigations during growing period",
+    "rec_sugarcane_2": "Apply organic manure before planting",
+    "rec_sugarcane_3": "Control stem borer with biological agents",
+    "rec_sugarcane_4": "Remove dry leaves periodically for better growth",
+    "rec_cotton_1": "Monitor pink bollworm with pheromone traps",
+    "rec_cotton_2": "Apply fertilizer in split doses",
+    "rec_cotton_3": "Ensure proper drainage during monsoon",
+    "rec_cotton_4": "Pick cotton when bolls are fully opened"
+  },
+  "disease": {
+    "title": "Plant Disease Detection",
+    "subtitle": "Upload a photo of your crop to detect diseases instantly",
+    "dropzone": {
+      "title": "Upload your crop image",
+      "subtitle": "Drag and drop or click to select an image",
+      "button": "Choose Image"
+    },
+    "analyze": "Analyze Image",
+    "analyzing": "AI is analyzing your image...",
+    "result": {
+      "healthy": "Healthy Crop",
+      "confidence": "Detection Confidence",
+      "symptoms": "Identified Symptoms",
+      "prevention": "Prevention Steps",
+      "treatment": "Treatment Guidelines",
+      "fertilizers": "Recommended Fertilizers",
+      "healthyMessage": "Your crop appears healthy! Continue regular care and monitoring.",
+      "name": {
+        "leaf-blight": "Leaf Blight",
+        "powdery-mildew": "Powdery Mildew",
+        "rust": "Rust",
+        "bacterial-wilt": "Bacterial Wilt"
+      }
+    },
+    "newAnalysis": "New Analysis",
+    "symptoms": {
+      "leafBlight": ["Yellow to brown spots on leaves", "Lesions with dark borders", "Leaf drying from tips"],
+      "powderyMildew": ["White powdery coating on leaves", "Stunted plant growth", "Yellowing of infected tissue"],
+      "rust": ["Rust-colored pustules on leaves", "Orange to brown spots", "Premature leaf drop"],
+      "bacterialWilt": ["Sudden wilting of leaves", "Vascular tissue discoloration", "Yellowing and stunting"]
+    },
+    "prevention": {
+      "leafBlight": ["Use disease-resistant varieties", "Practice crop rotation", "Avoid overhead irrigation"],
+      "powderyMildew": ["Ensure proper air circulation", "Avoid excessive nitrogen", "Plant resistant varieties"],
+      "rust": ["Use rust-resistant cultivars", "Avoid dense planting", "Remove crop residue after harvest"],
+      "bacterialWilt": ["Use certified disease-free seeds", "Practice long crop rotation", "Improve soil drainage"]
+    },
+    "treatment": {
+      "leafBlight": "Apply fungicide containing Mancozeb. Remove and destroy infected leaves. Spray at 10-day intervals.",
+      "powderyMildew": "Apply sulfur-based fungicide. Use neem oil spray weekly. Remove severely infected parts.",
+      "rust": "Apply fungicide with Propiconazole. Spray at first sign of infection. Repeat every 2 weeks.",
+      "bacterialWilt": "Apply copper-based bactericide. Remove and burn infected plants. Solarize soil before planting."
+    },
+    "fertilizers": {
+      "leafBlight": ["Potassium-rich fertilizer", "Foliar spray of micronutrients"],
+      "powderyMildew": ["Balanced NPK fertilizer", "Silicon-based supplements"],
+      "rust": ["Avoid excess nitrogen", "Apply potash for resistance"],
+      "bacterialWilt": ["Calcium nitrate application", "Organic compost for soil health"]
+    }
+  },
+  "irrigation": {
+    "title": "Smart Irrigation Advisor",
+    "subtitle": "Optimize water usage with AI-driven irrigation scheduling",
+    "soilMoisture": "Soil Moisture (%)",
+    "cropGrowthStage": "Crop Growth Stage",
+    "stages": {
+      "vegetative": "Vegetative",
+      "flowering": "Flowering",
+      "fruiting": "Fruiting",
+      "maturity": "Maturity"
+    },
+    "loading": "Calculating...",
+    "getRecommendation": "Get Irrigation Plan",
+    "recommendationTitle": "Irrigation Recommendation",
+    "recommendation": {
+      "critical": "Soil is very dry. Immediate irrigation required for your crop stage.",
+      "moderate": "Soil moisture is low. Schedule irrigation within 1-2 days.",
+      "good": "Soil moisture is adequate. Maintain current irrigation schedule."
+    },
+    "waterRequired": "Water Required",
+    "litersPerSqMeter": "L/m²",
+    "nextIrrigation": "Next Irrigation",
+    "inDays": "In {count} day(s)",
+    "weeklySchedule": "Weekly Irrigation Schedule",
+    "schedule": {
+      "day": "Day",
+      "waterAmount": "Water Required",
+      "status": "Status",
+      "recommended": "Recommended",
+      "optional": "Optional"
+    },
+    "days": {
+      "monday": "Monday",
+      "tuesday": "Tuesday",
+      "wednesday": "Wednesday",
+      "thursday": "Thursday",
+      "friday": "Friday",
+      "saturday": "Saturday",
+      "sunday": "Sunday"
+    },
+    "conservationTips": "Water Conservation Tips",
+    "tips": {
+      "tip1": "Use drip irrigation to reduce water usage by up to 40%",
+      "tip2": "Apply mulch around plants to retain soil moisture and reduce evaporation",
+      "tip3": "Irrigate in early morning or late evening to minimize water loss",
+      "tip4": "Collect rainwater for supplemental irrigation during dry spells"
+    }
+  },
+  "recommendation": {
+    "title": "Crop Recommendation Engine",
+    "subtitle": "Find the best crops for your farm based on soil and climate",
+    "soilType": "Soil Type",
+    "location": "Location",
+    "locationPlaceholder": "e.g., Uttar Pradesh",
+    "rainfall": "Rainfall (mm)",
+    "rainfallPlaceholder": "e.g., 800",
+    "season": "Season",
+    "kharif": "Kharif",
+    "rabi": "Rabi",
+    "zaid": "Zaid",
+    "loamy": "Loamy",
+    "clay": "Clay",
+    "sandy": "Sandy",
+    "silty": "Silty",
+    "peaty": "Peaty",
+    "analyzing": "Analyzing...",
+    "submit": "Get Recommendations",
+    "results": "Recommended Crops",
+    "recommended": "Best Match",
+    "expectedYield": "Expected Yield",
+    "quintalsPerHectare": "q/ha",
+    "profitability": "Profitability Score",
+    "waterRequirement": "Water Requirement",
+    "growingPeriod": "Growing Period",
+    "days": "days",
+    "bestMatch": "Best match for your farm conditions",
+    "noResults": "No recommendations found",
+    "tryAgain": "Try adjusting your inputs for better results",
+    "low": "Low",
+    "medium": "Medium",
+    "high": "High",
+    "crops": {
+      "wheat": "Wheat",
+      "rice": "Rice",
+      "maize": "Maize",
+      "sugarcane": "Sugarcane",
+      "cotton": "Cotton",
+      "mustard": "Mustard",
+      "barley": "Barley",
+      "groundnut": "Groundnut",
+      "millet": "Millet",
+      "jute": "Jute",
+      "taro": "Taro",
+      "chickpea": "Chickpea",
+      "lentil": "Lentil",
+      "peas": "Peas",
+      "cucumber": "Cucumber",
+      "pumpkin": "Pumpkin",
+      "watermelon": "Watermelon",
+      "melon": "Muskmelon",
+      "okra": "Okra",
+      "potato": "Potato"
+    }
+  },
+  "market": {
+    "title": "Market Intelligence Center",
+    "subtitle": "Real-time market prices and smart selling recommendations",
+    "currentPrices": "Current Market Prices",
+    "wheat": "Wheat",
+    "rice": "Rice",
+    "maize": "Maize",
+    "mustard": "Mustard",
+    "vegetables": "Vegetables",
+    "perQuintal": "per quintal",
+    "pricePrediction": "Price Prediction",
+    "predictedPrice": "Predicted Future Price",
+    "recommendation": "Selling Recommendation",
+    "sellNow": "Sell Now",
+    "hold": "Hold Inventory",
+    "wait": "Wait for Better Price",
+    "sellNowReason": "Market prices are favorable. Recommended to sell now.",
+    "holdReason": "Prices expected to rise. Consider holding for 2-3 weeks.",
+    "waitReason": "Market is volatile. Wait for price stabilization.",
+    "expectedPrice": "Expected Future Price",
+    "trend": "Market Trend",
+    "up": "Upward Trend",
+    "down": "Downward Trend",
+    "stable": "Stable"
+  },
+  "assistant": {
+    "title": "AI Farming Assistant",
+    "subtitle": "Get instant farming advice in Hindi and English",
+    "placeholder": "Ask me anything about farming...",
+    "send": "Send",
+    "voice": "Voice Input",
+    "thinking": "Thinking...",
+    "greeting": "Namaste! I'm your AI farming assistant. Ask me about crops, diseases, weather, or government schemes.",
+    "capabilities": "I can help with:",
+    "cropGuidance": "Crop guidance and selection",
+    "diseaseInfo": "Disease identification and treatment",
+    "weatherAdvice": "Weather interpretation",
+    "govSchemes": "Government scheme information"
+  },
+  "schemes": {
+    "title": "Government Schemes Hub",
+    "subtitle": "Discover agricultural schemes and subsidies for your farm",
+    "filter": {
+      "search": "Search schemes...",
+      "allStates": "All States"
+    },
+    "allStates": "All States",
+    "badge": {
+      "allIndia": "All India"
+    },
+    "viewDetails": "View Details",
+    "applyNow": "Apply Now",
+    "modal": {
+      "description": "Description",
+      "eligibility": "Eligibility",
+      "benefits": "Benefits",
+      "howToApply": "How to Apply",
+      "visitWebsite": "Visit Official Website"
+    },
+    "noResults": "No schemes found. Try a different search or filter.",
+    "pmkisan": {
+      "name": "PM-KISAN",
+      "description": "Income support of ₹6,000 per year to all landholding farmers",
+      "ministry": "Ministry of Agriculture",
+      "detail": {
+        "desc": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN) is a Central Sector scheme that provides income support of ₹6,000 per year to all landholding farmer families. The amount is transferred in three equal installments of ₹2,000 each directly into the bank accounts of beneficiaries.",
+        "eligibility": "All landholding farmer families with cultivable land are eligible. The scheme covers small and marginal farmers across India.",
+        "benefits": "Direct cash transfer of ₹6,000 per year in three installments. No middlemen involved. Aadhaar-based transparent verification system.",
+        "howToApply": "Visit the official PM-KISAN portal. Submit your Aadhaar number, land documents, and bank account details. You can also apply through your nearest Common Service Centre (CSC) or agriculture office."
+      }
+    },
+    "pmfby": {
+      "name": "PMFBY (Crop Insurance)",
+      "description": "Comprehensive crop insurance covering all stages of farming",
+      "ministry": "Ministry of Agriculture",
+      "detail": {
+        "desc": "Pradhan Mantri Fasal Bima Yojana (PMFBY) is a crop insurance scheme that provides comprehensive coverage against crop loss due to natural calamities, pests, and diseases.",
+        "eligibility": "All farmers growing notified crops in notified areas are eligible. Loanee farmers are automatically covered.",
+        "benefits": "Coverage for all stages of crop cycle. Low premium rates (2% for Kharif, 1.5% for Rabi, 5% for commercial crops). Timely claim settlement.",
+        "howToApply": "Contact your nearest bank branch or insurance company. Fill the proposal form and pay the premium share. Loanee farmers are automatically enrolled."
+      }
+    },
+    "soilhealth": {
+      "name": "Soil Health Card Scheme",
+      "description": "Soil testing and health card distribution for balanced fertilizer use",
+      "ministry": "Ministry of Agriculture",
+      "detail": {
+        "desc": "The Soil Health Card (SHC) scheme aims to promote balanced fertilizer use based on soil nutrient analysis. Cards are issued every 3 years with crop-specific recommendations.",
+        "eligibility": "All farmers with agricultural land are eligible for free soil testing.",
+        "benefits": "Free soil testing every 3 years. Customized fertilizer recommendations for each farm. Improved crop yield and reduced input costs.",
+        "howToApply": "Visit your nearest agriculture office or Krishi Vigyan Kendra. Provide your land details for soil sample collection by trained officials."
+      }
+    },
+    "pmksy": {
+      "name": "PMKSY (Watershed)",
+      "description": "Water conservation and watershed management for sustainable farming",
+      "ministry": "Ministry of Agriculture",
+      "detail": {
+        "desc": "Pradhan Mantri Krishi Sinchayee Yojana (PMKSY) focuses on water conservation, watershed management, and promoting efficient irrigation practices.",
+        "eligibility": "Farmers in watershed project areas are eligible to participate.",
+        "benefits": "Water harvesting structures. Improved groundwater levels. Reduced soil erosion. Better crop yields through assured irrigation.",
+        "howToApply": "Apply through your local watershed committee. Participate in village-level planning meetings. Contact the district agriculture department."
+      }
+    },
+    "kcc": {
+      "name": "Kisan Credit Card",
+      "description": "Affordable credit for farmers with flexible repayment options",
+      "ministry": "Ministry of Finance",
+      "detail": {
+        "desc": "Kisan Credit Card (KCC) scheme provides short-term loans to farmers for agricultural needs including crop cultivation, post-harvest expenses, and maintenance of farm assets.",
+        "eligibility": "All farmers, sharecroppers, and tenant farmers are eligible. Landholding farmers and landless agricultural laborers can apply.",
+        "benefits": "Short-term loans for agriculture needs. Flexible repayment up to 5 years. Personal accident insurance cover. No collateral up to ₹1.6 lakh.",
+        "howToApply": "Visit any commercial bank, cooperative bank, or regional rural bank. Fill the KCC application form. Submit land records and identity proof."
+      }
+    },
+    "enam": {
+      "name": "e-NAM",
+      "description": "National Agriculture Market for transparent price discovery",
+      "ministry": "Ministry of Agriculture",
+      "detail": {
+        "desc": "Electronic National Agriculture Market (e-NAM) is an online trading platform that integrates existing APMC mandis for transparent price discovery and unified market access.",
+        "eligibility": "All farmers with registered produce can participate. Traders and commission agents with valid licenses can trade.",
+        "benefits": "Online trading platform for better price discovery. Single license for multiple mandis. Transparent bidding system. Direct payment to farmers.",
+        "howToApply": "Register at the nearest e-NAM-enabled mandi. Get your biometric ID card. Complete the online registration process to start trading."
+      }
+    },
+    "upkisanbima": {
+      "name": "UP Kisan Accident Insurance",
+      "description": "Accident insurance coverage for farmers in Uttar Pradesh",
+      "ministry": "UP State Government",
+      "detail": {
+        "desc": "Uttar Pradesh Kisan Accident Insurance provides financial coverage to farmers in case of accidental death or disability during farming activities.",
+        "eligibility": "All farmers in Uttar Pradesh between age 18-70 years are eligible.",
+        "benefits": "Coverage up to ₹5,00,000 for accidental death. Partial disability coverage. No premium payment required by farmers.",
+        "howToApply": "Contact your local gram panchayat or block development office. Registration is done through the state agriculture department."
+      }
+    },
+    "mahaasadhar": {
+      "name": "Maharashtra Fasal Sahayya",
+      "description": "Crop assistance scheme for Maharashtra farmers",
+      "ministry": "Maharashtra State Government",
+      "detail": {
+        "desc": "Maharashtra Fasal Sahayya Yojana provides financial assistance to farmers who suffer crop loss due to natural calamities.",
+        "eligibility": "Farmers in Maharashtra with crop loss exceeding 33% due to natural calamities are eligible.",
+        "benefits": "Financial assistance of ₹10,000 per year. Free seed kits for next season. Quick claim processing through online system.",
+        "howToApply": "Report crop loss to the gram panchayat within 72 hours. Get crop damage assessment done by agriculture officers. Apply through the state portal."
+      }
+    },
+    "pbkisansathi": {
+      "name": "Punjab Kisan Sathi",
+      "description": "Comprehensive support scheme for Punjab farmers",
+      "ministry": "Punjab State Government",
+      "detail": {
+        "desc": "Punjab Kisan Sathi scheme provides financial assistance and support services to farmers for sustainable agriculture practices.",
+        "eligibility": "All registered farmers in Punjab are eligible for the scheme benefits.",
+        "benefits": "Financial assistance of ₹4,000 per acre. Free soil testing. Access to modern farm machinery at subsidized rates.",
+        "howToApply": "Register at your nearest block agriculture office. Provide land records and Aadhaar card. Complete online registration through Punjab state portal."
+      }
+    }
+  },
+  "analytics": {
+    "title": "Farm Analytics",
+    "subtitle": "Visualize your farm data with interactive charts and insights",
+    "cropPerformance": "Crop Performance Trends",
+    "rainfallAnalysis": "Rainfall Analysis",
+    "yieldForecasts": "Yield Forecasts",
+    "diseaseStats": "Disease Statistics",
+    "soilHealth": "Soil Health Indicators",
+    "marketPrices": "Market Price Movements",
+    "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+  },
+  "about": {
+    "badge": "About Sasya",
+    "title": "Empowering Farmers with AI-Driven Intelligence",
+    "description": "Sasya (सस्य), derived from the Sanskrit word for crops and vegetation, is an AI-powered agricultural intelligence platform designed to help farmers make smarter, data-driven decisions.",
+    "mission": {
+      "title": "Our Mission",
+      "text": "To bridge the gap between traditional farming practices and modern technology by providing intelligent tools for crop monitoring, disease detection, weather analysis, irrigation planning, and yield prediction."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "text": "Through advanced analytics, machine learning, and real-time agricultural insights, Sasya enables farmers to reduce risks, increase productivity, and build more sustainable farming practices."
+    },
+    "approach": {
+      "title": "Our Approach",
+      "text": "We transform complex agricultural data into simple, actionable recommendations that farmers can trust. Every insight is designed to be practical, timely, and easy to understand."
+    },
+    "belief": {
+      "title": "Our Belief",
+      "text": "Every farmer deserves access to technology that helps protect crops, optimize resources, and improve livelihoods. Sasya is built on this principle."
+    },
+    "cta": {
+      "title": "Ready to Transform Your Farming?",
+      "text": "Join thousands of Indian farmers using Sasya to make smarter agricultural decisions with AI-powered insights."
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "comingSoon": "Coming Soon",
+    "learnMore": "Learn More",
+    "backToHome": "Back to Home",
+    "allRightsReserved": "All rights reserved.",
+    "madeInIndia": "Made with ❤️ for Indian Farmers"
+  }
+}
