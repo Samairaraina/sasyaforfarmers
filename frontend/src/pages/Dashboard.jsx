@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { api } from '../api';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../context/LanguageContext';
@@ -87,8 +88,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     const loc = profile.state || 'Punjab';
-    fetch(`/api/weather/${encodeURIComponent(loc)}`)
-      .then(r => r.json())
+    api(`/api/weather/${encodeURIComponent(loc)}`)
       .then(data => { setWeather(data); setWeatherLoading(false); })
       .catch(() => setWeatherLoading(false));
   }, [profile.state]);

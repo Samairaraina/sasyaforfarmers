@@ -1,17 +1,16 @@
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { api } from '../api'
 import { MessageCircle, Send, Mic, Bot, User, Leaf, Brain, Sparkles, ChevronRight, Volume2 } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
 const getBotResponse = async (query, lang) => {
   try {
-    const res = await fetch('/api/chat', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: query, language: lang }),
-    })
-    const data = await res.json()
+      const data = await api('/api/chat', {
+        method: 'POST',
+        body: JSON.stringify({ message: query, language: lang }),
+      })
     return data.response
   } catch {
     return lang === 'hi'

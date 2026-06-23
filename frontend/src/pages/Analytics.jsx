@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { api } from '../api';
 import { useLanguage } from '../context/LanguageContext';
 import { BarChart3, TrendingUp, Droplets, Leaf, Activity, DollarSign, ArrowUp, ArrowDown } from 'lucide-react';
 import {
@@ -72,8 +73,7 @@ export default function Analytics() {
   const [chartData, setChartData] = useState(null);
 
   useEffect(() => {
-    fetch('/api/analytics')
-      .then(r => r.json())
+    api('/api/analytics')
       .then(data => {
         setChartData({
           performanceData: data.cropPerformance.map(d => ({ month: MONTH_MAP[d.month] ?? 0, current: d.currentYear, previous: d.previousYear })),

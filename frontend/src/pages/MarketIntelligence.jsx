@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { api } from '../api';
 import { useLanguage } from '../context/LanguageContext';
 import {
   DollarSign, TrendingUp, TrendingDown, BarChart3, Leaf,
@@ -101,8 +102,7 @@ export default function MarketIntelligence() {
   const [prices, setPrices] = useState(defaultPrices);
 
   useEffect(() => {
-    fetch('/api/market-prices')
-      .then(r => r.json())
+    api('/api/market-prices')
       .then(data => {
         if (data.prices) {
           setPrices(data.prices.map(p => ({
@@ -118,12 +118,10 @@ export default function MarketIntelligence() {
 
   const handlePredict = async () => {
     try {
-      const res = await fetch('/api/predict-price', {
+      const data = await api('/api/predict-price', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ commodity: selected }),
       });
-      const data = await res.json();
       const step = (data.predictedPrice - data.currentPrice) / 5;
       const months = Array.from({ length: 6 }, (_, i) => Math.round(data.currentPrice + step * i));
       setPredicted({ futurePrice: data.predictedPrice, trend: data.trend, months });

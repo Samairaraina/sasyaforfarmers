@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { api } from '../api';
 import { Droplets, Thermometer, Calendar, Sun, Leaf, AlertCircle, CheckCircle, Clock, CloudSun } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -62,12 +63,10 @@ export default function IrrigationAdvisor() {
     setLoading(true);
     setResult(null);
     try {
-      const res = await fetch('/api/irrigation-advice', {
+      const data = await api('/api/irrigation-advice', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ soilMoisture, cropStage }),
       });
-      const data = await res.json();
       const schedule = generateSchedule(cropStage, soilMoisture);
       setResult({ waterRequired: data.waterRequired, nextDays: data.nextIrrigation, schedule });
     } catch {

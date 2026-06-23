@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { api } from '../api';
 import { Upload, Search, Leaf, AlertTriangle, CheckCircle, FlaskConical, Shield, Droplets, Bug } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -161,8 +162,7 @@ export default function DiseaseDetection() {
     setAnalyzing(true);
     setResult(null);
     try {
-      const res = await fetch('/api/detect-disease', { method: 'POST' });
-      const data = await res.json();
+      const data = await api('/api/detect-disease', { method: 'POST' });
       if (data.healthy) {
         setResult({ name: 'Healthy', confidence: data.confidence, data: null });
       } else {

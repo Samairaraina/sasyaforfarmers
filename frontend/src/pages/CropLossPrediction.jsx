@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
+import { api } from '../api'
 import { BarChart3, TrendingDown, AlertTriangle, CheckCircle, Thermometer, Droplets, MapPin, Leaf, Brain, Beaker, Lightbulb } from 'lucide-react'
 import { useLanguage } from '../context/LanguageContext'
 
@@ -53,9 +54,8 @@ const CropLossPrediction = () => {
     setResults(null)
 
     try {
-      const res = await fetch('/api/predict-loss', {
+      const data = await api('/api/predict-loss', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           cropType: formData.crop,
           temperature: Number(formData.temperature),
@@ -63,7 +63,6 @@ const CropLossPrediction = () => {
           humidity: Number(formData.humidity),
         }),
       })
-      const data = await res.json()
 
       const seasonData = seasons.map((s) => ({
         label: s,
