@@ -7,23 +7,11 @@ import { useLanguage } from '../context/LanguageContext'
 const cropOptions = ['wheat', 'rice', 'maize', 'mustard', 'sugarcane', 'cotton']
 const soilOptions = ['loamy', 'clay', 'sandy', 'silty', 'peaty']
 
-const getRiskLevel = (loss) => {
-  if (loss < 10) return { label: 'prediction.low', color: 'text-green-600', bg: 'bg-green-100', icon: CheckCircle }
-  if (loss < 20) return { label: 'prediction.moderate', color: 'text-yellow-600', bg: 'bg-yellow-100', icon: AlertTriangle }
-  if (loss < 30) return { label: 'prediction.high', color: 'text-orange-600', bg: 'bg-orange-100', icon: AlertTriangle }
-  return { label: 'prediction.critical', color: 'text-red-600', bg: 'bg-red-100', icon: TrendingDown }
-}
-
-const getRecommendations = (crop) => {
-  const map = {
-    wheat: ['prediction.rec_wheat_1', 'prediction.rec_wheat_2', 'prediction.rec_wheat_3', 'prediction.rec_wheat_4'],
-    rice: ['prediction.rec_rice_1', 'prediction.rec_rice_2', 'prediction.rec_rice_3', 'prediction.rec_rice_4'],
-    maize: ['prediction.rec_maize_1', 'prediction.rec_maize_2', 'prediction.rec_maize_3', 'prediction.rec_maize_4'],
-    mustard: ['prediction.rec_mustard_1', 'prediction.rec_mustard_2', 'prediction.rec_mustard_3', 'prediction.rec_mustard_4'],
-    sugarcane: ['prediction.rec_sugarcane_1', 'prediction.rec_sugarcane_2', 'prediction.rec_sugarcane_3', 'prediction.rec_sugarcane_4'],
-    cotton: ['prediction.rec_cotton_1', 'prediction.rec_cotton_2', 'prediction.rec_cotton_3', 'prediction.rec_cotton_4'],
-  }
-  return map[crop] || map.wheat
+const riskLevels = {
+  Low: { label: 'prediction.low', color: 'text-green-600', bg: 'bg-green-100', icon: CheckCircle },
+  Moderate: { label: 'prediction.moderate', color: 'text-yellow-600', bg: 'bg-yellow-100', icon: AlertTriangle },
+  High: { label: 'prediction.high', color: 'text-orange-600', bg: 'bg-orange-100', icon: AlertTriangle },
+  Critical: { label: 'prediction.critical', color: 'text-red-600', bg: 'bg-red-100', icon: TrendingDown },
 }
 
 const seasons = ['prediction.kharif', 'prediction.rabi', 'prediction.zaid', 'prediction.current']
@@ -58,31 +46,41 @@ const CropLossPrediction = () => {
     setFormData((prev) => ({ ...prev, [field]: e.target.value }))
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (loading) return
     setLoading(true)
     setResults(null)
 
-    setTimeout(() => {
-      const yieldVal = +(30 + Math.random() * 25).toFixed(1)
-      const lossVal = +(5 + Math.random() * 30).toFixed(1)
-      const risk = getRiskLevel(lossVal)
+    try {
+      const res = await fetch('/api/predict-loss', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          cropType: formData.crop,
+          temperature: Number(formData.temperature),
+          rainfall: Number(formData.rainfall),
+          humidity: Number(formData.humidity),
+        }),
+      })
+      const data = await res.json()
 
       const seasonData = seasons.map((s) => ({
         label: s,
-        value: s === 'prediction.current' ? yieldVal : +(25 + Math.random() * 30).toFixed(1),
+        value: s === 'prediction.current' ? data.predictedYield : +(data.predictedYield * 0.7 + Math.random() * data.predictedYield * 0.6).toFixed(1),
       }))
 
       setResults({
-        yield: yieldVal,
-        loss: lossVal,
-        risk,
-        recommendations: getRecommendations(formData.crop),
+        yield: data.predictedYield,
+        loss: data.lossPercentage,
+        risk: riskLevels[data.riskLevel] || riskLevels.Low,
+        recommendations: data.recommendations,
         seasonData,
       })
-      setLoading(false)
-    }, 2000)
+    } catch {
+      setResults(null)
+    }
+    setLoading(false)
   }
 
   return (
@@ -270,7 +268,7 @@ const CropLossPrediction = () => {
                           <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-accent/20">
                             <Lightbulb className="h-4 w-4 text-accent" />
                           </div>
-                          <p className="text-sm text-gray-700">{t(rec)}</p>
+                          <p className="text-sm text-gray-700">{rec}</p>
                         </motion.div>
                       ))}
                     </div>

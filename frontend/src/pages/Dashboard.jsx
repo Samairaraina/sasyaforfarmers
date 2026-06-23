@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -82,6 +82,16 @@ export default function Dashboard() {
   });
 
   const [saved, setSaved] = useState(false);
+  const [weather, setWeather] = useState(null);
+  const [weatherLoading, setWeatherLoading] = useState(true);
+
+  useEffect(() => {
+    const loc = profile.state || 'Punjab';
+    fetch(`/api/weather/${encodeURIComponent(loc)}`)
+      .then(r => r.json())
+      .then(data => { setWeather(data); setWeatherLoading(false); })
+      .catch(() => setWeatherLoading(false));
+  }, [profile.state]);
 
   const handleChange = (field) => (e) => {
     setProfile(prev => ({ ...prev, [field]: e.target.value }));
@@ -238,21 +248,29 @@ export default function Dashboard() {
           </div>
           <div className="p-5">
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { icon: Thermometer, label: t('dashboard.temperature'), value: '32°C' },
-                { icon: Droplets, label: t('dashboard.humidity'), value: '68%' },
-                { icon: Droplets, label: t('dashboard.rainfall'), value: '120mm' },
-                { icon: Wind, label: t('dashboard.windSpeed'), value: '12 km/h' }
-              ].map((item, i) => {
-                const Icon = item.icon;
-                return (
-                  <div key={i} className="text-center p-3 bg-gray-50 rounded-xl">
-                    <Icon className="w-5 h-5 mx-auto mb-1 text-primary" />
-                    <p className="text-lg font-bold text-gray-900">{item.value}</p>
-                    <p className="text-xs text-gray-500">{item.label}</p>
-                  </div>
-                );
-              })}
+              {weatherLoading
+                ? Array.from({ length: 4 }).map((_, i) => (
+                    <div key={i} className="text-center p-3 bg-gray-50 rounded-xl animate-pulse">
+                      <div className="w-5 h-5 mx-auto mb-1 bg-gray-200 rounded" />
+                      <div className="h-6 w-12 mx-auto mb-1 bg-gray-200 rounded" />
+                      <div className="h-3 w-16 mx-auto bg-gray-200 rounded" />
+                    </div>
+                  ))
+                : [
+                    { icon: Thermometer, label: t('dashboard.temperature'), value: weather ? `${Math.round(weather.temperature)}°C` : '—' },
+                    { icon: Droplets, label: t('dashboard.humidity'), value: weather ? `${weather.humidity}%` : '—' },
+                    { icon: Droplets, label: t('dashboard.rainfall'), value: weather ? `${weather.rainfall || 0}mm` : '—' },
+                    { icon: Wind, label: t('dashboard.windSpeed'), value: weather ? `${Math.round(weather.windSpeed)} km/h` : '—' }
+                  ].map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                      <div key={i} className="text-center p-3 bg-gray-50 rounded-xl">
+                        <Icon className="w-5 h-5 mx-auto mb-1 text-primary" />
+                        <p className="text-lg font-bold text-gray-900">{item.value}</p>
+                        <p className="text-xs text-gray-500">{item.label}</p>
+                      </div>
+                    );
+                  })}
             </div>
           </div>
         </motion.div>

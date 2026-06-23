@@ -77,14 +77,6 @@ const DISEASES = [
 
 const DISEASE_NAMES = ['Leaf Blight', 'Powdery Mildew', 'Rust', 'Bacterial Wilt', 'Healthy'];
 
-function getRandomDisease() {
-  const isHealthy = Math.random() < 0.2;
-  if (isHealthy) return { name: 'Healthy', confidence: 100 };
-  const idx = Math.floor(Math.random() * 4);
-  const confidences = [87, 92, 78, 85];
-  return { name: DISEASE_NAMES[idx], confidence: confidences[idx] };
-}
-
 function CircularProgress({ percentage, size = 120, strokeWidth = 8 }) {
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
@@ -165,15 +157,22 @@ export default function DiseaseDetection() {
     handleFile(file);
   };
 
-  const handleAnalyze = () => {
+  const handleAnalyze = async () => {
     setAnalyzing(true);
     setResult(null);
-    setTimeout(() => {
-      const disease = getRandomDisease();
-      const diseaseData = DISEASES.find((d) => d.name === disease.name) || null;
-      setResult({ ...disease, data: diseaseData });
-      setAnalyzing(false);
-    }, 2000);
+    try {
+      const res = await fetch('/api/detect-disease', { method: 'POST' });
+      const data = await res.json();
+      if (data.healthy) {
+        setResult({ name: 'Healthy', confidence: data.confidence, data: null });
+      } else {
+        const diseaseData = DISEASES.find((d) => d.name === data.diseaseName) || null;
+        setResult({ name: data.diseaseName, confidence: data.confidence, data: diseaseData });
+      }
+    } catch {
+      setResult(null);
+    }
+    setAnalyzing(false);
   };
 
   const handleReset = () => {

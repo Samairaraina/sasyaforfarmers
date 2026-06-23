@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { useLanguage } from '../context/LanguageContext';
@@ -22,7 +22,7 @@ const itemVariants = {
 
 const commodities = ['Wheat', 'Rice', 'Maize', 'Mustard', 'Vegetables'];
 
-const currentPrices = [
+const defaultPrices = [
   { name: 'Wheat', price: 2150, change: 2.5, changeDir: 'up' },
   { name: 'Rice', price: 1950, change: 1.2, changeDir: 'up' },
   { name: 'Maize', price: 1820, change: 0.8, changeDir: 'down' },
@@ -30,13 +30,7 @@ const currentPrices = [
   { name: 'Vegetables', price: 1500, change: 1.5, changeDir: 'down' }
 ];
 
-const predictions = {
-  Wheat: { futurePrice: 2280, trend: 'up', months: [2100, 2150, 2180, 2220, 2250, 2280] },
-  Rice: { futurePrice: 2020, trend: 'up', months: [1900, 1920, 1950, 1970, 2000, 2020] },
-  Maize: { futurePrice: 1760, trend: 'down', months: [1880, 1860, 1840, 1820, 1800, 1760] },
-  Mustard: { futurePrice: 4520, trend: 'up', months: [4100, 4180, 4250, 4350, 4450, 4520] },
-  Vegetables: { futurePrice: 1400, trend: 'down', months: [1600, 1550, 1520, 1480, 1450, 1400] }
-};
+const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
 
 const recommendations = [
   {
@@ -91,8 +85,6 @@ const recommendations = [
   }
 ];
 
-const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'];
-
 const containerClass = "min-h-screen py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto";
 
 function TrendIcon({ trend }) {
@@ -106,9 +98,38 @@ export default function MarketIntelligence() {
   const { language } = useLanguage();
   const [selected, setSelected] = useState('Wheat');
   const [predicted, setPredicted] = useState(null);
+  const [prices, setPrices] = useState(defaultPrices);
 
-  const handlePredict = () => {
-    setPredicted(predictions[selected]);
+  useEffect(() => {
+    fetch('/api/market-prices')
+      .then(r => r.json())
+      .then(data => {
+        if (data.prices) {
+          setPrices(data.prices.map(p => ({
+            name: p.commodity,
+            price: p.price,
+            change: p.change,
+            changeDir: p.trend,
+          })));
+        }
+      })
+      .catch(() => {});
+  }, []);
+
+  const handlePredict = async () => {
+    try {
+      const res = await fetch('/api/predict-price', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ commodity: selected }),
+      });
+      const data = await res.json();
+      const step = (data.predictedPrice - data.currentPrice) / 5;
+      const months = Array.from({ length: 6 }, (_, i) => Math.round(data.currentPrice + step * i));
+      setPredicted({ futurePrice: data.predictedPrice, trend: data.trend, months });
+    } catch {
+      setPredicted(null);
+    }
   };
 
   return (
@@ -136,7 +157,7 @@ export default function MarketIntelligence() {
           <h2 className="text-lg font-semibold text-gray-900">{t('market.currentPrices')}</h2>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-          {currentPrices.map((item) => {
+          {prices.map((item) => {
             const cropKey = item.name.toLowerCase();
             return (
               <motion.div

@@ -78,7 +78,7 @@ function Counter({ target, suffix }) {
 function MiniChart() {
   const bars = [30, 55, 40, 65, 45, 75, 60, 80, 70, 85];
   return (
-    <div className="flex items-end gap-[3px] h-12">
+    <div className="flex items-end gap-0.75 h-12">
       {bars.map((h, i) => (
         <motion.div
           key={i}
@@ -122,7 +122,7 @@ function MiniWater() {
           whileInView={{ height: '65%' }}
           viewport={{ once: true }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="absolute bottom-0 w-full bg-gradient-to-t from-blue-400 to-blue-300/70 rounded-t-sm"
+          className="absolute bottom-0 w-full bg-linear-to-t from-blue-400 to-blue-300/70 rounded-t-sm"
         >
           <div className="absolute top-1 left-2 text-[8px] text-white/80 font-medium">65%</div>
         </motion.div>
@@ -250,9 +250,9 @@ function DashboardPreview() {
 
   return (
     <div ref={containerRef} className="relative w-full max-w-5xl mx-auto">
-      <div className="absolute -inset-8 bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-[2rem] blur-3xl" />
+      <div className="absolute -inset-8 bg-linear-to-br from-primary/5 via-secondary/5 to-accent/5 rounded-4xl blur-3xl" />
 
-      <div className="relative bg-white/80 backdrop-blur-xl rounded-[1.5rem] border border-white/50 shadow-2xl overflow-hidden">
+      <div className="relative bg-white/80 backdrop-blur-xl rounded-3xl border border-white/50 shadow-2xl overflow-hidden">
 
         <div className="flex items-center gap-1.5 px-5 py-3.5 border-b border-gray-100/60 bg-gray-50/30">
           <div className="w-3 h-3 rounded-full bg-red-400" />
@@ -344,7 +344,7 @@ function DashboardPreview() {
                     initial={{ height: 0 }}
                     animate={inView ? { height: `${h}%` } : {}}
                     transition={{ duration: 0.4, delay: 0.5 + i * 0.05 }}
-                    className="flex-1 rounded-t-sm bg-gradient-to-t from-blue-300 to-blue-200"
+                    className="flex-1 rounded-t-sm bg-linear-to-t from-blue-300 to-blue-200"
                   />
                 ))}
               </div>
@@ -375,14 +375,14 @@ function DashboardPreview() {
                   </div>
                   <p className="text-sm font-bold text-dark">{section.value}</p>
                   <p className="text-[10px] text-gray-400 mb-1.5">{section.detail}</p>
-                  <div className="flex items-end gap-[2px] h-8">
+                  <div className="flex items-end gap-0.5 h-8">
                     {section.bars.map((h, i) => (
                       <motion.div
                         key={i}
                         initial={{ height: 0 }}
                         animate={inView ? { height: `${h}%` } : {}}
                         transition={{ duration: 0.3, delay: 0.7 + i * 0.03 }}
-                        className={`flex-1 rounded-t-sm bg-gradient-to-t ${section.color[0]} ${section.color[1]}`}
+                        className={`flex-1 rounded-t-sm bg-linear-to-t ${section.color[0]} ${section.color[1]}`}
                       />
                     ))}
                   </div>
@@ -402,7 +402,7 @@ function DashboardPreview() {
               </div>
               <div className="space-y-3">
                 <div className="flex items-start gap-2.5">
-                  <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 mt-0.5">
                     <Bell className="w-3 h-3 text-primary" />
                   </div>
                   <div>
@@ -411,7 +411,7 @@ function DashboardPreview() {
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <div className="w-6 h-6 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-lg bg-accent/10 flex items-center justify-center shrink-0 mt-0.5">
                     <AlertCircle className="w-3 h-3 text-accent-dark" />
                   </div>
                   <div>
@@ -420,7 +420,7 @@ function DashboardPreview() {
                   </div>
                 </div>
                 <div className="flex items-start gap-2.5">
-                  <div className="w-6 h-6 rounded-lg bg-green-50 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <div className="w-6 h-6 rounded-lg bg-green-50 flex items-center justify-center shrink-0 mt-0.5">
                     <Clock className="w-3 h-3 text-green-500" />
                   </div>
                   <div>
@@ -453,7 +453,7 @@ function FeatureCard({ feat, index }) {
     >
       <Link
         to={feat.path}
-        className="group block bg-white rounded-[1.5rem] border border-gray-100 shadow-sm hover:shadow-lg overflow-hidden transition-all duration-300"
+        className="group block bg-white rounded-3xl border border-gray-100 shadow-sm hover:shadow-lg overflow-hidden transition-all duration-300"
         style={{ boxShadow: '0 1px 3px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.02)' }}
         onMouseEnter={(e) => {
           e.currentTarget.style.boxShadow = `0 8px 30px ${feat.color}18, 0 2px 8px ${feat.color}10`;
@@ -512,12 +512,12 @@ export default function Landing() {
   return (
     <div className="overflow-hidden">
       <section className="relative min-h-screen flex items-center pt-16">
-        <div className="absolute inset-0 bg-gradient-to-br from-cream via-bg to-white" />
+        <div className="absolute inset-0 bg-linear-to-br from-cream via-bg to-white" />
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-1/4 -left-20 w-72 h-72 rounded-full bg-primary/5 blur-3xl" />
           <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full bg-secondary/5 blur-3xl" />
           <div className="absolute bottom-1/4 left-1/3 w-64 h-64 rounded-full bg-accent/5 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-gradient-to-br from-primary/3 to-secondary/3 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-linear-to-br from-primary/3 to-secondary/3 blur-3xl" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -580,7 +580,7 @@ export default function Landing() {
       </section>
 
       <section ref={statsRef} className="py-16 relative">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-dark via-primary to-secondary opacity-95" />
+        <div className="absolute inset-0 bg-linear-to-r from-primary-dark via-primary to-secondary opacity-95" />
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
           <div className="absolute bottom-0 right-1/4 w-48 h-48 rounded-full bg-accent/10 blur-3xl" />
@@ -608,9 +608,9 @@ export default function Landing() {
       <section ref={featuresRef} className="py-20 lg:py-28 relative overflow-hidden">
         <div className="absolute inset-0 bg-cream" />
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/3 left-0 w-80 h-80 rounded-full bg-primary/[0.04] blur-3xl" />
-          <div className="absolute bottom-1/3 right-0 w-96 h-96 rounded-full bg-secondary/[0.04] blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-accent/[0.03] blur-3xl" />
+          <div className="absolute top-1/3 left-0 w-80 h-80 rounded-full bg-primary/4 blur-3xl" />
+          <div className="absolute bottom-1/3 right-0 w-96 h-96 rounded-full bg-secondary/4 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-125 h-125 rounded-full bg-accent/3 blur-3xl" />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -691,7 +691,7 @@ export default function Landing() {
       </section>
 
       <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-secondary" />
+        <div className="absolute inset-0 bg-linear-to-br from-primary-dark via-primary to-secondary" />
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-10 left-10 w-72 h-72 rounded-full bg-white/5 blur-3xl" />
           <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-accent/10 blur-3xl" />

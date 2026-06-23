@@ -58,18 +58,22 @@ export default function IrrigationAdvisor() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState(null);
 
-  const handleGetRecommendation = () => {
+  const handleGetRecommendation = async () => {
     setLoading(true);
     setResult(null);
-    setTimeout(() => {
-      const waterRequired = parseFloat(
-        ((stageBaseWater[cropStage] || 8) * (1 + (100 - soilMoisture) / 100)).toFixed(1)
-      );
-      const nextDays = getNextIrrigationDays(soilMoisture);
+    try {
+      const res = await fetch('/api/irrigation-advice', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ soilMoisture, cropStage }),
+      });
+      const data = await res.json();
       const schedule = generateSchedule(cropStage, soilMoisture);
-      setResult({ waterRequired, nextDays, schedule });
-      setLoading(false);
-    }, 1500);
+      setResult({ waterRequired: data.waterRequired, nextDays: data.nextIrrigation, schedule });
+    } catch {
+      setResult(null);
+    }
+    setLoading(false);
   };
 
   return (
