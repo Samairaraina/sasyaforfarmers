@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: sasya-backend
+    runtime: node
+    repo: https://github.com/Samairaraina/sasyaforfarmers
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: OWM_API_KEY
+        sync: false
+      - key: NODE_VERSION
+        value: 22
