@@ -128,7 +128,7 @@ export default function DiseaseDetection() {
     setImage(file);
     setResult(null);
     const reader = new FileReader();
-    reader.onload = (e) => setImagePreview(e.target.value);
+    reader.onload = (e) => setImagePreview(e.target.result);
     reader.readAsDataURL(file);
   };
 
