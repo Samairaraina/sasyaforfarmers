@@ -93,7 +93,7 @@ export default function Navbar() {
                           onClick={() => setFeaturesOpen(false)}
                           className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:text-primary hover:bg-primary/5 transition-colors"
                         >
-                          <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                             <Icon className="w-3.5 h-3.5 text-primary" />
                           </div>
                           {t(item.labelKey)}
@@ -133,7 +133,7 @@ export default function Navbar() {
                           onClick={() => setSolutionsOpen(false)}
                           className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:text-primary hover:bg-primary/5 transition-colors"
                         >
-                          <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                             <Icon className="w-3.5 h-3.5 text-primary" />
                           </div>
                           {t(item.labelKey)}
