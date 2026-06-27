@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { api } from '../api';
-import { Upload, Search, Leaf, AlertTriangle, CheckCircle, FlaskConical, Shield, Droplets, Bug } from 'lucide-react';
+import { Upload, Search, Leaf, AlertTriangle, CheckCircle, FlaskConical, Shield, Droplets, Bug, Timer, Info } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const DISEASES = [
@@ -15,6 +15,11 @@ const DISEASES = [
       'disease.symptoms.leafBlight.1',
       'disease.symptoms.leafBlight.2',
     ],
+    causes: [
+      'disease.causes.leafBlight.0',
+      'disease.causes.leafBlight.1',
+      'disease.causes.leafBlight.2',
+    ],
     prevention: [
       'disease.prevention.leafBlight.0',
       'disease.prevention.leafBlight.1',
@@ -22,6 +27,17 @@ const DISEASES = [
     ],
     treatment: 'disease.treatment.leafBlight',
     fertilizers: ['disease.fertilizers.leafBlight.0', 'disease.fertilizers.leafBlight.1'],
+    organicSolutions: [
+      'disease.organicSolutions.leafBlight.0',
+      'disease.organicSolutions.leafBlight.1',
+      'disease.organicSolutions.leafBlight.2',
+    ],
+    chemicalSolutions: [
+      'disease.chemicalSolutions.leafBlight.0',
+      'disease.chemicalSolutions.leafBlight.1',
+      'disease.chemicalSolutions.leafBlight.2',
+    ],
+    expectedRecoveryTime: 'disease.expectedRecoveryTime.leafBlight',
   },
   {
     id: 'powdery-mildew',
@@ -32,6 +48,11 @@ const DISEASES = [
       'disease.symptoms.powderyMildew.1',
       'disease.symptoms.powderyMildew.2',
     ],
+    causes: [
+      'disease.causes.powderyMildew.0',
+      'disease.causes.powderyMildew.1',
+      'disease.causes.powderyMildew.2',
+    ],
     prevention: [
       'disease.prevention.powderyMildew.0',
       'disease.prevention.powderyMildew.1',
@@ -39,6 +60,17 @@ const DISEASES = [
     ],
     treatment: 'disease.treatment.powderyMildew',
     fertilizers: ['disease.fertilizers.powderyMildew.0', 'disease.fertilizers.powderyMildew.1'],
+    organicSolutions: [
+      'disease.organicSolutions.powderyMildew.0',
+      'disease.organicSolutions.powderyMildew.1',
+      'disease.organicSolutions.powderyMildew.2',
+    ],
+    chemicalSolutions: [
+      'disease.chemicalSolutions.powderyMildew.0',
+      'disease.chemicalSolutions.powderyMildew.1',
+      'disease.chemicalSolutions.powderyMildew.2',
+    ],
+    expectedRecoveryTime: 'disease.expectedRecoveryTime.powderyMildew',
   },
   {
     id: 'rust',
@@ -49,6 +81,11 @@ const DISEASES = [
       'disease.symptoms.rust.1',
       'disease.symptoms.rust.2',
     ],
+    causes: [
+      'disease.causes.rust.0',
+      'disease.causes.rust.1',
+      'disease.causes.rust.2',
+    ],
     prevention: [
       'disease.prevention.rust.0',
       'disease.prevention.rust.1',
@@ -56,6 +93,17 @@ const DISEASES = [
     ],
     treatment: 'disease.treatment.rust',
     fertilizers: ['disease.fertilizers.rust.0', 'disease.fertilizers.rust.1'],
+    organicSolutions: [
+      'disease.organicSolutions.rust.0',
+      'disease.organicSolutions.rust.1',
+      'disease.organicSolutions.rust.2',
+    ],
+    chemicalSolutions: [
+      'disease.chemicalSolutions.rust.0',
+      'disease.chemicalSolutions.rust.1',
+      'disease.chemicalSolutions.rust.2',
+    ],
+    expectedRecoveryTime: 'disease.expectedRecoveryTime.rust',
   },
   {
     id: 'bacterial-wilt',
@@ -66,6 +114,11 @@ const DISEASES = [
       'disease.symptoms.bacterialWilt.1',
       'disease.symptoms.bacterialWilt.2',
     ],
+    causes: [
+      'disease.causes.bacterialWilt.0',
+      'disease.causes.bacterialWilt.1',
+      'disease.causes.bacterialWilt.2',
+    ],
     prevention: [
       'disease.prevention.bacterialWilt.0',
       'disease.prevention.bacterialWilt.1',
@@ -73,6 +126,17 @@ const DISEASES = [
     ],
     treatment: 'disease.treatment.bacterialWilt',
     fertilizers: ['disease.fertilizers.bacterialWilt.0', 'disease.fertilizers.bacterialWilt.1'],
+    organicSolutions: [
+      'disease.organicSolutions.bacterialWilt.0',
+      'disease.organicSolutions.bacterialWilt.1',
+      'disease.organicSolutions.bacterialWilt.2',
+    ],
+    chemicalSolutions: [
+      'disease.chemicalSolutions.bacterialWilt.0',
+      'disease.chemicalSolutions.bacterialWilt.1',
+      'disease.chemicalSolutions.bacterialWilt.2',
+    ],
+    expectedRecoveryTime: 'disease.expectedRecoveryTime.bacterialWilt',
   },
 ];
 
@@ -337,6 +401,21 @@ export default function DiseaseDetection() {
 
                     {result.data && (
                       <>
+                        <div className="p-5 rounded-xl bg-orange-50 border border-orange-100">
+                          <div className="flex items-center gap-3 mb-3">
+                            <Info className="w-5 h-5 text-orange-600" />
+                            <h3 className="font-semibold text-dark">{t('disease.result.causes')}</h3>
+                          </div>
+                          <ul className="space-y-2">
+                            {result.data.causes.map((cause, i) => (
+                              <li key={i} className="flex items-start gap-2 text-gray-700">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-orange-500 shrink-0" />
+                                {t(cause)}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
                         <div className="p-5 rounded-xl bg-blue-50 border border-blue-100">
                           <div className="flex items-center gap-3 mb-3">
                             <Bug className="w-5 h-5 text-blue-600" />
@@ -345,23 +424,8 @@ export default function DiseaseDetection() {
                           <ul className="space-y-2">
                             {result.data.symptoms.map((symp, i) => (
                               <li key={i} className="flex items-start gap-2 text-gray-700">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 flex-shrink-0" />
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-500 shrink-0" />
                                 {t(symp)}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-
-                        <div className="p-5 rounded-xl bg-amber-50 border border-amber-100">
-                          <div className="flex items-center gap-3 mb-3">
-                            <Shield className="w-5 h-5 text-amber-600" />
-                            <h3 className="font-semibold text-dark">{t('disease.result.prevention')}</h3>
-                          </div>
-                          <ul className="space-y-2">
-                            {result.data.prevention.map((prev, i) => (
-                              <li key={i} className="flex items-start gap-2 text-gray-700">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500 flex-shrink-0" />
-                                {t(prev)}
                               </li>
                             ))}
                           </ul>
@@ -375,19 +439,57 @@ export default function DiseaseDetection() {
                           <p className="text-gray-700">{t(result.data.treatment)}</p>
                         </div>
 
-                        <div className="p-5 rounded-xl bg-green-50 border border-green-100">
+                        <div className="p-5 rounded-xl bg-amber-50 border border-amber-100">
                           <div className="flex items-center gap-3 mb-3">
-                            <Droplets className="w-5 h-5 text-green-600" />
-                            <h3 className="font-semibold text-dark">{t('disease.result.fertilizers')}</h3>
+                            <Shield className="w-5 h-5 text-amber-600" />
+                            <h3 className="font-semibold text-dark">{t('disease.result.prevention')}</h3>
                           </div>
                           <ul className="space-y-2">
-                            {result.data.fertilizers.map((fert, i) => (
+                            {result.data.prevention.map((prev, i) => (
                               <li key={i} className="flex items-start gap-2 text-gray-700">
-                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-500 flex-shrink-0" />
-                                {t(fert)}
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-amber-500 shrink-0" />
+                                {t(prev)}
                               </li>
                             ))}
                           </ul>
+                        </div>
+
+                        <div className="p-5 rounded-xl bg-emerald-50 border border-emerald-100">
+                          <div className="flex items-center gap-3 mb-3">
+                            <Leaf className="w-5 h-5 text-emerald-600" />
+                            <h3 className="font-semibold text-dark">{t('disease.result.organicSolutions')}</h3>
+                          </div>
+                          <ul className="space-y-2">
+                            {result.data.organicSolutions.map((sol, i) => (
+                              <li key={i} className="flex items-start gap-2 text-gray-700">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                                {t(sol)}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="p-5 rounded-xl bg-green-50 border border-green-100">
+                          <div className="flex items-center gap-3 mb-3">
+                            <Droplets className="w-5 h-5 text-green-600" />
+                            <h3 className="font-semibold text-dark">{t('disease.result.chemicalSolutions')}</h3>
+                          </div>
+                          <ul className="space-y-2">
+                            {result.data.chemicalSolutions.map((sol, i) => (
+                              <li key={i} className="flex items-start gap-2 text-gray-700">
+                                <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />
+                                {t(sol)}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        <div className="p-5 rounded-xl bg-cyan-50 border border-cyan-100">
+                          <div className="flex items-center gap-3 mb-3">
+                            <Timer className="w-5 h-5 text-cyan-600" />
+                            <h3 className="font-semibold text-dark">{t('disease.result.expectedRecoveryTime')}</h3>
+                          </div>
+                          <p className="text-gray-700 font-medium">{t(result.data.expectedRecoveryTime)}</p>
                         </div>
                       </>
                     )}

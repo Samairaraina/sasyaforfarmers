@@ -211,10 +211,13 @@
     "result": {
       "healthy": "Healthy Crop",
       "confidence": "Detection Confidence",
+      "causes": "Causes",
       "symptoms": "Identified Symptoms",
-      "prevention": "Prevention Steps",
       "treatment": "Treatment Guidelines",
-      "fertilizers": "Recommended Fertilizers",
+      "prevention": "Prevention Steps",
+      "organicSolutions": "Organic Solutions",
+      "chemicalSolutions": "Chemical Solutions",
+      "expectedRecoveryTime": "Expected Recovery Time",
       "healthyMessage": "Your crop appears healthy! Continue regular care and monitoring.",
       "name": {
         "leaf-blight": "Leaf Blight",
@@ -247,6 +250,30 @@
       "powderyMildew": ["Balanced NPK fertilizer", "Silicon-based supplements"],
       "rust": ["Avoid excess nitrogen", "Apply potash for resistance"],
       "bacterialWilt": ["Calcium nitrate application", "Organic compost for soil health"]
+    },
+    "causes": {
+      "leafBlight": ["Fungal spores spread by wind and rain", "Infected crop debris from previous season", "High humidity and warm temperatures (20-30°C)"],
+      "powderyMildew": ["Fungal spores (conidia) spread by wind", "High humidity with moderate temperatures", "Dense plant canopy reducing air flow"],
+      "rust": ["Fungal spores (urediniospores) spread through air", "Prolonged leaf wetness and high humidity", "Temperatures between 15-25°C favor infection"],
+      "bacterialWilt": ["Soil-borne bacteria persisting in infected soil", "Infected seeds or planting material", "Root injury from transplanting or nematodes"]
+    },
+    "organicSolutions": {
+      "leafBlight": ["Neem oil spray (5ml per litre of water)", "Apply Trichoderma viride bio-fungicide", "Baking soda solution (1g per litre water)"],
+      "powderyMildew": ["Sulfur-based organic fungicide spray", "Neem oil with soap solution weekly", "Milk spray (1 part milk : 10 parts water)"],
+      "rust": ["Garlic extract spray (10 cloves per litre)", "Bicarbonate solution (1g per litre water)", "Regular compost tea foliar application"],
+      "bacterialWilt": ["Soil solarization for 4-6 weeks before planting", "Neem cake application in soil", "Pseudomonas fluorescens bio-control treatment"]
+    },
+    "chemicalSolutions": {
+      "leafBlight": ["Mancozeb 75% WP (2.5g per litre water)", "Propiconazole 25% EC (1ml per litre water)", "Hexaconazole 5% SC (2ml per litre water)"],
+      "powderyMildew": ["Sulfur 80% WP (2g per litre water)", "Tebuconazole 25% EC (1ml per litre water)", "Penconazole 10% EC (0.5ml per litre water)"],
+      "rust": ["Propiconazole 25% EC (1ml per litre water)", "Tebuconazole 50% WG (0.5g per litre water)", "Azoxystrobin 23% SC (1ml per litre water)"],
+      "bacterialWilt": ["Copper oxychloride 50% WP (3g per litre water)", "Streptocycline 200ppm spray", "Copper-based bactericide soil drench"]
+    },
+    "expectedRecoveryTime": {
+      "leafBlight": "2-3 weeks with consistent fungicide application",
+      "powderyMildew": "1-2 weeks with regular treatment and monitoring",
+      "rust": "2-4 weeks depending on infection severity",
+      "bacterialWilt": "3-5 weeks; severe cases may not fully recover"
     }
   },
   "irrigation": {
@@ -526,28 +553,51 @@
   },
   "about": {
     "badge": "About Sasya",
-    "title": "Empowering Farmers with AI-Driven Intelligence",
-    "description": "Sasya (सस्य), derived from the Sanskrit word for crops and vegetation, is an AI-powered agricultural intelligence platform designed to help farmers make smarter, data-driven decisions.",
+    "title": "Transforming Indian Agriculture Through Artificial Intelligence",
+    "description": "Sasya (सस्य), inspired by the Sanskrit word for crops and vegetation, combines Artificial Intelligence, Machine Learning, weather intelligence, and agricultural analytics to help farmers make smarter decisions, improve crop health, and increase productivity sustainably.",
     "mission": {
       "title": "Our Mission",
-      "text": "To bridge the gap between traditional farming practices and modern technology by providing intelligent tools for crop monitoring, disease detection, weather analysis, irrigation planning, and yield prediction."
+      "text": "Empowering every farmer with intelligent technology that simplifies crop management, enables early disease detection, and promotes sustainable farming."
     },
     "vision": {
       "title": "Our Vision",
-      "text": "Through advanced analytics, machine learning, and real-time agricultural insights, Sasya enables farmers to reduce risks, increase productivity, and build more sustainable farming practices."
+      "text": "Building the future where every farm benefits from AI-powered insights, precision agriculture, and data-driven decisions."
     },
-    "approach": {
-      "title": "Our Approach",
-      "text": "We transform complex agricultural data into simple, actionable recommendations that farmers can trust. Every insight is designed to be practical, timely, and easy to understand."
+    "howItWorks": {
+      "title": "How Sasya Works",
+      "step1": "Upload Crop Image",
+      "step2": "AI Analysis",
+      "step3": "Disease Detection",
+      "step4": "Personalized Recommendations"
     },
-    "belief": {
-      "title": "Our Belief",
-      "text": "Every farmer deserves access to technology that helps protect crops, optimize resources, and improve livelihoods. Sasya is built on this principle."
+    "features": {
+      "title": "Interactive AI Features"
+    },
+    "featureDisease": "Disease Detection",
+    "featureWeather": "Weather Forecasting",
+    "featureIrrigation": "Irrigation Planning",
+    "featureAnalytics": "Crop Analytics",
+    "featureYield": "Yield Prediction",
+    "featureMobile": "Mobile Friendly",
+    "ai": {
+      "title": "Powered by Artificial Intelligence",
+      "text": "Sasya uses Machine Learning, Computer Vision, agricultural datasets, and weather intelligence to provide reliable crop insights."
     },
     "cta": {
-      "title": "Ready to Transform Your Farming?",
-      "text": "Join thousands of Indian farmers using Sasya to make smarter agricultural decisions with AI-powered insights."
+      "title": "Ready to Grow Smarter with Sasya?",
+      "text": "Join the future of intelligent farming with AI-powered crop monitoring, disease detection, and precision agriculture.",
+      "button1": "Start Free Analysis",
+      "button2": "Learn More"
     }
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "Contact Us",
+    "subtitle": "Have questions or feedback? We'd love to hear from you.",
+    "email": "Email",
+    "location": "Location",
+    "country": "India",
+    "tagline": "Empowering Indian farmers with AI-driven insights"
   },
   "common": {
     "loading": "Loading...",
@@ -557,6 +607,7 @@
     "learnMore": "Learn More",
     "backToHome": "Back to Home",
     "allRightsReserved": "All rights reserved.",
-    "madeInIndia": "Made with ❤️ for Indian Farmers"
+    "madeInIndia": "Made for Indian Farmers with ❤️",
+    "developedBy": "Designed & Developed by Samaira Raina"
   }
 }

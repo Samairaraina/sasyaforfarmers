@@ -346,7 +346,7 @@ export default function Dashboard() {
                 whileTap={{ scale: 0.98 }}
                 className="bg-white rounded-2xl card-shadow card-hover p-6 flex items-center gap-4"
               >
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${card.color} flex items-center justify-center flex-shrink-0`}>
+                <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${card.color} flex items-center justify-center shrink-0`}>
                   <Icon className="w-6 h-6 text-white" />
                 </div>
                 <div>

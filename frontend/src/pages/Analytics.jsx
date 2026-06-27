@@ -30,7 +30,7 @@ function StatCard({ icon: Icon, label, value, trend, trendUp }) {
       variants={itemVariants}
       className="bg-white rounded-2xl card-shadow card-hover p-5 flex items-center gap-4"
     >
-      <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center flex-shrink-0">
+      <div className="w-12 h-12 gradient-primary rounded-xl flex items-center justify-center shrink-0">
         <Icon className="w-6 h-6 text-white" />
       </div>
       <div className="flex-1 min-w-0">

@@ -76,7 +76,7 @@ export default function IrrigationAdvisor() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-light-yellow via-white to-green-50">
+    <div className="min-h-screen bg-linear-to-br from-light-yellow via-white to-green-50">
       <div className="max-w-6xl mx-auto px-4 py-8">
         <motion.div
           variants={containerVariants}
@@ -178,7 +178,7 @@ export default function IrrigationAdvisor() {
             >
               <motion.div
                 variants={itemVariants}
-                className="bg-gradient-to-br from-primary to-green-700 rounded-2xl p-6 md:p-8 text-white card-shadow"
+                className="bg-linear-to-br from-primary to-green-700 rounded-2xl p-6 md:p-8 text-white card-shadow"
               >
                 <div className="flex items-start gap-4">
                   <div className="p-3 bg-white/20 rounded-xl">

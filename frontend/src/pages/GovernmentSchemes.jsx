@@ -262,16 +262,16 @@ export default function GovernmentSchemes() {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder={t('schemes.filter.search')}
-              className="w-full rounded-xl border border-gray-200 bg-white py-3 pl-10 pr-4 text-sm text-gray-700 shadow-sm outline-none transition-all focus:border-[#84CC16] focus:ring-2 focus:ring-[#84CC16]/20"
+              className="w-full rounded-xl border border-gray-200 bg-white py-3 pl-10 pr-4 text-sm text-gray-700 shadow-sm outline-none transition-all focus:border-secondary focus:ring-2 focus:ring-secondary/20"
             />
           </div>
 
-          <div className="relative min-w-[200px]">
+          <div className="relative min-w-50">
             <MapPin className="absolute left-3 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-400" />
             <select
               value={selectedState}
               onChange={(e) => setSelectedState(e.target.value)}
-              className="w-full appearance-none rounded-xl border border-gray-200 bg-white py-3 pl-10 pr-10 text-sm text-gray-700 shadow-sm outline-none transition-all focus:border-[#84CC16] focus:ring-2 focus:ring-[#84CC16]/20"
+              className="w-full appearance-none rounded-xl border border-gray-200 bg-white py-3 pl-10 pr-10 text-sm text-gray-700 shadow-sm outline-none transition-all focus:border-secondary focus:ring-2 focus:ring-secondary/20"
             >
               <option value="All">{t('schemes.filter.allStates')}</option>
               {indianStates.map((state) => (

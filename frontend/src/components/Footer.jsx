@@ -34,20 +34,7 @@ export default function Footer() {
             <p className="text-sm text-gray-500 leading-relaxed mb-4 max-w-xs">
               AI-powered agricultural intelligence platform helping farmers make smarter decisions through data-driven insights.
             </p>
-            <div className="flex items-center gap-3">
-              <a href="#" className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-xs font-medium">
-                T
-              </a>
-              <a href="#" className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-xs font-medium">
-                X
-              </a>
-              <a href="#" className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-xs font-medium">
-                Y
-              </a>
-              <a href="#" className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 hover:bg-primary hover:text-white transition-all text-xs font-medium">
-                L
-              </a>
-            </div>
+
           </div>
 
           <div>
@@ -77,11 +64,16 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-sm font-semibold text-dark mb-4">Contact</h4>
+            <h4 className="text-sm font-semibold text-dark mb-4">
+              <Link to="/contact" className="hover:text-primary transition-colors">Contact</Link>
+            </h4>
             <ul className="space-y-2.5 text-sm text-gray-500">
-              <li>info@sasya.ai</li>
-              <li>+91 1800-123-4567</li>
-              <li>New Delhi, India</li>
+              <li>
+                <a href="mailto:samairaraina140108@gmail.com" className="hover:text-primary transition-colors">
+                  samairaraina140108@gmail.com
+                </a>
+              </li>
+              <li>India</li>
             </ul>
           </div>
         </div>
@@ -90,9 +82,10 @@ export default function Footer() {
           <p className="text-sm text-gray-400">
             &copy; {new Date().getFullYear()} Sasya. {t('common.allRightsReserved')}
           </p>
-          <p className="text-sm text-gray-400">
-            {t('common.madeInIndia')}
-          </p>
+          <div className="text-sm text-gray-400 text-right">
+            <p>{t('common.madeInIndia')}</p>
+            <p className="text-xs text-gray-300 mt-0.5">{t('common.developedBy')}</p>
+          </div>
         </div>
       </div>
     </footer>

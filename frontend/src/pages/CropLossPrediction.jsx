@@ -264,7 +264,7 @@ const CropLossPrediction = () => {
                           transition={{ delay: 0.5 + idx * 0.15 }}
                           className="flex items-start gap-3 rounded-xl bg-light-yellow/60 p-4 card-hover"
                         >
-                          <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-accent/20">
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent/20">
                             <Lightbulb className="h-4 w-4 text-accent" />
                           </div>
                           <p className="text-sm text-gray-700">{rec}</p>
@@ -290,7 +290,7 @@ const CropLossPrediction = () => {
                               animate={{ height: `${Math.max(heightPct, 8)}%` }}
                               transition={{ duration: 0.8, delay: idx * 0.15, ease: 'easeOut' }}
                               className={`w-full rounded-t-lg sm:max-w-[60px] ${
-                                isCurrent ? 'bg-gradient-to-t from-primary to-secondary' : 'bg-gradient-to-t from-accent to-light-yellow'
+                                isCurrent ? 'bg-linear-to-t from-primary to-secondary' : 'bg-linear-to-t from-accent to-light-yellow'
                               }`}
                               style={{ minHeight: '12px' }}
                             />

@@ -93,7 +93,7 @@ const FarmingAssistant = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#F8FAF5]" dir={language === 'hi' ? 'rtl' : 'ltr'}>
+    <div className="min-h-screen bg-bg" dir={language === 'hi' ? 'rtl' : 'ltr'}>
       <div className="mx-auto flex max-w-7xl flex-col px-4 py-6 sm:px-6 lg:px-8 min-h-[calc(100vh-6rem)]">
         <motion.div
           variants={containerVariants}
@@ -106,7 +106,7 @@ const FarmingAssistant = () => {
               <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full gradient-primary shadow-lg lg:mx-0">
                 <MessageCircle className="h-6 w-6 text-white" />
               </div>
-              <h1 className="bg-gradient-to-r from-[#4D7C0F] to-[#EAB308] bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">
+              <h1 className="bg-linear-to-r from-primary to-accent-dark bg-clip-text text-2xl font-bold text-transparent sm:text-3xl">
                 {t('assistant.title')}
               </h1>
               <p className="mt-1 text-sm text-gray-600">{t('assistant.subtitle')}</p>
@@ -125,14 +125,14 @@ const FarmingAssistant = () => {
                       className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
                     >
                       <div className={`flex max-w-[85%] items-start gap-2 sm:max-w-[75%] ${msg.role === 'user' ? 'flex-row-reverse' : ''}`}>
-                        <div className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full ${
-                          msg.role === 'user' ? 'bg-[#4D7C0F]/10' : 'bg-[#84CC16]/20'
-                        }`}>
-                          {msg.role === 'user' ? (
-                            <User className="h-4 w-4 text-[#4D7C0F]" />
-                          ) : (
-                            <Bot className="h-4 w-4 text-[#84CC16]" />
-                          )}
+<div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full ${
+                        msg.role === 'user' ? 'bg-primary/10' : 'bg-secondary/20'
+                      }`}>
+                        {msg.role === 'user' ? (
+                          <User className="h-4 w-4 text-primary" />
+                        ) : (
+                          <Bot className="h-4 w-4 text-secondary" />
+                        )}
                         </div>
                         <div className={`rounded-2xl px-4 py-3 text-sm leading-relaxed ${
                           msg.role === 'user'
@@ -141,11 +141,11 @@ const FarmingAssistant = () => {
                         }`}>
                           <p>{msg.text}</p>
                           {msg.capabilities && (
-                            <div className="mt-3 space-y-1.5 border-t border-[#84CC16]/20 pt-3">
-                              <p className="text-xs font-medium text-[#4D7C0F]">{t('assistant.capabilities')}</p>
+                            <div className="mt-3 space-y-1.5 border-t border-secondary/20 pt-3">
+                              <p className="text-xs font-medium text-primary">{t('assistant.capabilities')}</p>
                               {['cropGuidance', 'diseaseInfo', 'weatherAdvice', 'govSchemes'].map((cap) => (
                                 <div key={cap} className="flex items-center gap-1.5 text-xs text-gray-600">
-                                  <ChevronRight className="h-3 w-3 text-[#84CC16]" />
+                                  <ChevronRight className="h-3 w-3 text-secondary" />
                                   <span>{t(`assistant.${cap}`)}</span>
                                 </div>
                               ))}
@@ -165,15 +165,15 @@ const FarmingAssistant = () => {
                     className="flex justify-start"
                   >
                     <div className="flex max-w-[85%] items-start gap-2 sm:max-w-[75%]">
-                      <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-[#84CC16]/20">
-                        <Bot className="h-4 w-4 text-[#84CC16]" />
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-secondary/20">
+                        <Bot className="h-4 w-4 text-secondary" />
                       </div>
                       <div className="rounded-2xl bg-[#F0F7E6] px-4 py-3">
                         <div className="flex items-center gap-2">
                           <div className="flex gap-1">
-                            <span className="h-2 w-2 animate-bounce rounded-full bg-[#84CC16]" style={{ animationDelay: '0ms' }} />
-                            <span className="h-2 w-2 animate-bounce rounded-full bg-[#84CC16]" style={{ animationDelay: '150ms' }} />
-                            <span className="h-2 w-2 animate-bounce rounded-full bg-[#84CC16]" style={{ animationDelay: '300ms' }} />
+                            <span className="h-2 w-2 animate-bounce rounded-full bg-secondary" style={{ animationDelay: '0ms' }} />
+                            <span className="h-2 w-2 animate-bounce rounded-full bg-secondary" style={{ animationDelay: '150ms' }} />
+                            <span className="h-2 w-2 animate-bounce rounded-full bg-secondary" style={{ animationDelay: '300ms' }} />
                           </div>
                           <span className="text-xs text-gray-500">{t('assistant.thinking')}</span>
                         </div>
@@ -189,7 +189,7 @@ const FarmingAssistant = () => {
                 <div className="flex items-center gap-2">
                   <button
                     onClick={toggleListening}
-                    className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full transition-all duration-200 ${
+                    className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-all duration-200 ${
                       isListening
                         ? 'bg-red-100 text-red-500 shadow-md animate-pulse'
                         : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
@@ -206,7 +206,7 @@ const FarmingAssistant = () => {
                       onChange={(e) => setInput(e.target.value)}
                       onKeyDown={handleKeyDown}
                       placeholder={t('assistant.placeholder')}
-                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 pr-12 text-sm text-gray-800 placeholder-gray-400 outline-none transition-all duration-200 focus:border-[#4D7C0F] focus:bg-white focus:ring-2 focus:ring-[#84CC16]/30"
+                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 pr-12 text-sm text-gray-800 placeholder-gray-400 outline-none transition-all duration-200 focus:border-primary focus:bg-white focus:ring-2 focus:ring-secondary/30"
                       disabled={isTyping}
                     />
                   </div>
@@ -215,7 +215,7 @@ const FarmingAssistant = () => {
                     disabled={!input.trim() || isTyping}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="gradient-primary flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full shadow-lg transition-all duration-200 disabled:opacity-50"
+                    className="gradient-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full shadow-lg transition-all duration-200 disabled:opacity-50"
                   >
                     <Send className="h-5 w-5 text-white" />
                   </motion.button>
@@ -228,7 +228,7 @@ const FarmingAssistant = () => {
             <div className="sticky top-24 space-y-4">
               <div className="flex items-center gap-2">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg gradient-warm">
-                  <Sparkles className="h-4 w-4 text-[#1F2937]" />
+                  <Sparkles className="h-4 w-4 text-dark" />
                 </div>
                 <h2 className="text-sm font-semibold text-gray-700">{t('assistant.capabilities')}</h2>
               </div>
@@ -240,14 +240,14 @@ const FarmingAssistant = () => {
                   transition={{ delay: 0.3 + idx * 0.1 }}
                   className="card-shadow card-hover flex items-center gap-4 rounded-xl bg-white p-4"
                 >
-                  <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg ${card.bg} ${card.color}`}>
+                  <div className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-lg ${card.bg} ${card.color}`}>
                     <card.icon className="h-5 w-5" />
                   </div>
                   <p className="text-sm font-medium text-gray-700">{t(`assistant.${card.key}`)}</p>
                 </motion.div>
               ))}
               <div className="mt-6 rounded-2xl gradient-warm p-4 text-center">
-                <Volume2 className="mx-auto mb-2 h-6 w-6 text-[#1F2937]" />
+                <Volume2 className="mx-auto mb-2 h-6 w-6 text-dark" />
                 <p className="text-xs font-medium text-gray-700">{t('assistant.subtitle')}</p>
               </div>
             </div>
