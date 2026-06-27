@@ -487,9 +487,12 @@ router.get('/analytics', (req, res) => {
     previousYear: Math.round(28 + Math.sin(i / 2) * 12 + Math.random() * 5),
   }));
 
+  const baseRainfall = [30, 25, 20, 15, 50, 120, 250, 280, 180, 80, 40, 20];
+  const avgRainfall = Math.round(baseRainfall.reduce((a, b) => a + b, 0) / baseRainfall.length);
   const rainfallData = months.map((month, i) => ({
     month,
-    rainfall: Math.round([30, 25, 20, 15, 50, 120, 250, 280, 180, 80, 40, 20][i] + Math.random() * 20),
+    rainfall: Math.round(baseRainfall[i] + Math.random() * 20),
+    average: avgRainfall,
   }));
 
   const yieldForecast = ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'].map((month, i) => ({

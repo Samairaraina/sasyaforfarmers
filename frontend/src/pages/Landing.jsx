@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import heroBg from '../assets/hero.png';
 import {
   Leaf, Search, DollarSign, Droplets, MessageCircle,
   BarChart3, Shield, ArrowRight, ArrowUpRight, ChevronRight,
@@ -518,6 +519,7 @@ export default function Landing() {
           <div className="absolute top-1/3 right-0 w-96 h-96 rounded-full bg-secondary/5 blur-3xl" />
           <div className="absolute bottom-1/4 left-1/3 w-64 h-64 rounded-full bg-accent/5 blur-3xl" />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 rounded-full bg-linear-to-br from-primary/3 to-secondary/3 blur-3xl" />
+          <img src={heroBg} alt="" className="absolute right-0 top-1/2 -translate-y-1/2 w-auto h-3/4 object-contain opacity-40" />
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
